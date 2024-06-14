@@ -4,6 +4,8 @@ import bodyParser from 'body-parser';
 import { corsHeaders } from './middlewares/cors.middleware';
 import { productsRouter } from './routes/product.router';
 import { authRouter } from './routes/auth.router';
+import { authMiddleware } from './middlewares/auth.middleware';
+
 const app:Application=express();
 
 //Sutvarkomi duomenys jei buvo siusta forma
