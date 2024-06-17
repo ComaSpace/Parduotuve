@@ -4,6 +4,7 @@ import { ProductsService } from '../../../../services/products.service';
 import { Product } from '../../../../models/products';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-table-products',
@@ -14,6 +15,7 @@ import { RouterLink } from '@angular/router';
 })
 export class TableProductsComponent {
   public products:Product[]=[];
+authService: any;
 
   private loadProducts(){
     this.productsService.getProducts().subscribe((data)=>{
