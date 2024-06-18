@@ -2,7 +2,7 @@ import express, {Application, Request, Response} from 'express';
 import { skaiciuokleRouter } from './routes/skaiciuokle.router';
 import bodyParser from 'body-parser';
 import { corsHeaders } from './middlewares/cors.middleware';
-import { productsRouter } from './routes/products.router';
+import { productsRouter } from './routes/product.router';
 import { authRouter } from './routes/auth.router';
 import { authMiddleware } from './middlewares/auth.middleware';
 import { userRouter } from './routes/user.router';
