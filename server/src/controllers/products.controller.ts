@@ -1,9 +1,15 @@
+
 import { pool } from "../db/connect";
 import { Product } from "../models/product";
 
 
 export class ProductsController{
     static async getAll( req:any, res:any){
+        if (req.user.type>2){
+            return res.status(400).json({
+                text:"Neturite teisiu"
+            })
+        }
         const sql="SELECT * FROM products";
         const [result]=await pool.query<Product[]>(sql);
         res.json(result);
