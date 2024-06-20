@@ -22,7 +22,8 @@ export class ProfileComponent {
     this.profileForm=new FormGroup({
       'name':new FormControl(null),
       'email':new FormControl(null),
-      'password':new FormControl(null)
+      'password':new FormControl(null),
+      'image':new FormControl(null)
     });
   
     if (authService.user!=null && authService.user.id!=null){
@@ -31,7 +32,8 @@ export class ProfileComponent {
         this.profileForm.setValue({
           name:user.name,
           email:user.email,
-          password:""
+          password:"",
+          image:null,
         });
         this.profileForm.updateValueAndValidity();;
       });
@@ -40,20 +42,27 @@ export class ProfileComponent {
 
   public onSubmitForm(){
     const values=this.profileForm.value;
+    console.log(values);
 
-    this.userService.updateUser(new User(values.email, this.authService.user!.id, values.name, values.password )).subscribe((result)=>{
-      this.router.navigate(["/"]);
+    this.userService.updateUserAndPhoto(new User(values.email, this.authService.user!.id, values.name, values.password ),values.image ).subscribe((result)=>{
+      this.router.navigate(["/"]); 
     });
 
   }
 
   public onProfileImageChange(event:Event){
     const file= (event.target as HTMLInputElement).files![0];
+   
     const reader=new FileReader();
     reader.onload=()=>{
       this.imgPreview=reader.result as String;
     }
     reader.readAsDataURL(file);
+
+    this.profileForm.patchValue({
+      image:file
+    });
+    this.profileForm.get("image")?.updateValueAndValidity();
 
   }
 
