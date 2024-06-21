@@ -12,6 +12,7 @@ import { adminGuard } from './guards/admin.guard';
 import { UpdateUserComponent } from './components/users/update-user/update-user.component';
 import { ProfileComponent } from './components/users/profile/profile.component';
 import { NewOrderComponent } from './components/orders/new-order/new-order.component';
+import { ListOrdersComponent } from './components/orders/list-orders/list-orders.component';
 
 export const routes: Routes = [
     {   

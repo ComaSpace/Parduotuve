@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { OrdersService } from '../../../services/orders.service';
-import { Product } from '../../../models/product';
+import { Product } from '../../../models/products';
 import { ProductsService } from '../../../services/products.service';
 
 @Component({
