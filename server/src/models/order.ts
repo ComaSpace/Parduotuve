@@ -1,9 +1,10 @@
-
 import { RowDataPacket } from "mysql2";
 
 export interface ResultOrdersProducts extends RowDataPacket{
     productId:Number, 
-    count:Number
+    count:Number,
+    name:string,
+    price:Number,
 }
 
 export interface Order extends RowDataPacket{

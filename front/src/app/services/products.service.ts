@@ -9,10 +9,14 @@ import { AuthService } from './auth.service';
 export class ProductsService {
 
   // http://localhost:4999/products/   - čia yra visi produktai
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private authService:AuthService) { }
 
   public getProducts(){
     return this.http.get<Product[]>('http://localhost:4999/products/');
+  }
+
+  public getFiltredProducts(filter:String){
+    return this.http.get<Product[]>('http://localhost:4999/products/filter/'+filter);
   }
 
   public getProduct(id:number){
